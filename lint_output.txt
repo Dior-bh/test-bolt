@@ -1,0 +1,32 @@
+
+> bolt@1.0.0 lint
+> eslint --cache --cache-location ./node_modules/.cache/eslint app
+
+
+D:\bolt.diy-main\bolt.diy-main\app\components\BackgroundTasks.tsx
+   77:35  error  Insert `ÔÅÄ┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À`            prettier/prettier
+   82:1   error  Delete `┬À┬À`                       prettier/prettier
+  134:90  error  Insert `ÔÅÄ┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À┬À`  prettier/prettier
+  139:1   error  Delete `┬À┬À`                       prettier/prettier
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\integration.ts
+  119:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\orchestrator.ts
+    9:1   error  '../cache/cache-manager' import is restricted from being used by a pattern. Relative imports are not allowed. Please use '~/' instead  no-restricted-imports
+  118:34  error  'index' is defined but never used. Allowed unused args must match /^_/u                                                                @typescript-eslint/no-unused-vars
+  152:39  error  Delete `┬À`                                                                                                                             prettier/prettier
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\stores\supabase.ts
+  63:12  error  '_e' is defined but never used  @typescript-eslint/no-unused-vars
+  75:5   error  Insert `┬À┬À`                     prettier/prettier
+  76:1   error  Insert `┬À┬À`                     prettier/prettier
+  77:5   error  Insert `┬À┬À`                     prettier/prettier
+  78:1   error  Replace `┬À┬À┬À┬À` with `┬À┬À┬À┬À┬À┬À`    prettier/prettier
+  79:5   error  Insert `┬À┬À`                     prettier/prettier
+  80:1   error  Replace `┬À┬À┬À┬À` with `┬À┬À┬À┬À┬À┬À`    prettier/prettier
+  81:1   error  Insert `┬À┬À`                     prettier/prettier
+
+Ô£û 16 problems (16 errors, 0 warnings)
+  12 errors and 0 warnings potentially fixable with the `--fix` option.
+

@@ -1,0 +1,14 @@
+
+> bolt@1.0.0 typecheck
+> tsc
+
+app/lib/agents/architect-agent.ts(2,10): error TS1484: 'AgentContext' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+app/lib/agents/backend-agent.ts(2,10): error TS1484: 'AgentContext' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+app/lib/agents/frontend-agent.ts(2,10): error TS1484: 'AgentContext' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+app/lib/agents/orchestrator.ts(8,10): error TS1484: 'AppGenerationResult' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+app/lib/agents/orchestrator.ts(8,31): error TS1484: 'AgentContext' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+app/lib/agents/orchestrator.ts(8,45): error TS1484: 'Task' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+app/lib/agents/performance-agent.ts(2,10): error TS1484: 'AgentContext' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+app/lib/agents/refactoring-agent.ts(2,10): error TS1484: 'AgentContext' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+app/lib/agents/security-agent.ts(2,10): error TS1484: 'AgentContext' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+app/lib/agents/testing-agent.ts(2,10): error TS1484: 'AgentContext' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.

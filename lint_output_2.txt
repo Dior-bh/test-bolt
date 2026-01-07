@@ -1,0 +1,17 @@
+
+> bolt@1.0.0 lint
+> eslint --cache --cache-location ./node_modules/.cache/eslint app
+
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\integration.ts
+  119:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\orchestrator.ts
+    9:1   error  '../cache/cache-manager' import is restricted from being used by a pattern. Relative imports are not allowed. Please use '~/' instead  no-restricted-imports
+  118:34  error  'index' is defined but never used. Allowed unused args must match /^_/u                                                                @typescript-eslint/no-unused-vars
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\stores\supabase.ts
+  63:12  error  '_e' is defined but never used  @typescript-eslint/no-unused-vars
+
+Ô£û 4 problems (4 errors, 0 warnings)
+

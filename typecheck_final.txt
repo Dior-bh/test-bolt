@@ -1,0 +1,5 @@
+
+> bolt@1.0.0 typecheck
+> tsc
+
+app/components/@settings/tabs/providers/cloud/CloudProvidersTab.tsx(123,16): error TS2304: Cannot find name 'TbCloudComputing'.

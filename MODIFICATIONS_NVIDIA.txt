@@ -1,0 +1,203 @@
+================================================================================
+MODIFICATIONS APPORTÉES AU PROJET BOLT.DIY - NVIDIA & OPENROUTER
+================================================================================
+
+OBJECTIF
+--------
+Supprimer tous les fournisseurs LLM SAUF OpenRouter et mettre à jour NVIDIA 
+avec tous les modèles open-source disponibles sur build.nvidia.com/models.
+
+================================================================================
+1. MISE À JOUR DU PROVIDER NVIDIA
+================================================================================
+Fichier: app/lib/modules/llm/providers/nvidia.ts
+
+Changements:
+✓ Base URL par défaut: https://integrate.api.nvidia.com/v1
+✓ Suppression de getDynamicModels (modèles statiques uniquement)
+✓ Ajout de 66 modèles open-source organisés par catégorie
+
+MODÈLES NVIDIA (8)
+------------------
+- nvidia/cosmos-reason2-8b
+- nvidia/nemotron-3-nano-30b-a3b
+- nvidia/llama-3.3-nemotron-super-49b-v1.5
+- nvidia/llama-3.3-nemotron-super-49b-v1
+- nvidia/llama-3.1-nemotron-ultra-253b-v1
+- nvidia/llama-3.1-nemotron-nano-8b-v1
+- nvidia/llama-3.1-nemotron-nano-4b-v1.1
+- nvidia/nvidia-nemotron-nano-9b-v2
+
+MODÈLES MISTRAL (7)
+-------------------
+- mistralai/devstral-2-123b-instruct-2512
+- mistralai/mistral-large-3-675b-instruct-2512
+- mistralai/mistral-small-3.1-24b-instruct-2503
+- mistralai/mistral-medium-3-instruct
+- mistralai/mistral-small-24b-instruct
+- mistralai/magistral-small-2506
+- mistralai/mistral-nemotron
+
+MODÈLES DEEPSEEK (9)
+--------------------
+- deepseek-ai/deepseek-v3.2
+- deepseek-ai/deepseek-v3.1
+- deepseek-ai/deepseek-v3.1-terminus
+- deepseek-ai/deepseek-r1
+- deepseek-ai/deepseek-r1-0528
+- deepseek-ai/deepseek-r1-distill-qwen-32b
+- deepseek-ai/deepseek-r1-distill-qwen-14b
+- deepseek-ai/deepseek-r1-distill-qwen-7b
+- deepseek-ai/deepseek-r1-distill-llama-8b
+
+MODÈLES OPENAI OSS (2)
+----------------------
+- openai/gpt-oss-20b
+- openai/gpt-oss-120b
+
+MODÈLES META LLAMA (7)
+----------------------
+- meta/llama-4-maverick-17b-128e-instruct
+- meta/llama-4-scout-17b-16e-instruct
+- meta/llama-3.3-70b-instruct
+- meta/llama-3.2-90b-vision-instruct
+- meta/llama-3.2-11b-vision-instruct
+- meta/llama-3.2-3b-instruct
+- meta/llama-3.2-1b-instruct
+
+MODÈLES QWEN (8)
+----------------
+- qwen/qwen3-next-80b-a3b-instruct
+- qwen/qwen3-next-80b-a3b-thinking
+- qwen/qwen3-235b-a22b
+- qwen/qwen3-coder-480b-a35b-instruct
+- qwen/qwen2.5-7b-instruct
+- qwen/qwen2.5-coder-32b-instruct
+- qwen/qwen2.5-coder-7b-instruct
+- qwen/qwq-32b
+
+MODÈLES MICROSOFT PHI (5)
+-------------------------
+- microsoft/phi-4-mini-instruct
+- microsoft/phi-4-mini-flash-reasoning
+- microsoft/phi-4-multimodal-instruct
+- microsoft/phi-3.5-vision-instruct
+- microsoft/phi-3.5-mini-instruct
+
+MODÈLES MOONSHOT/KIMI (3)
+-------------------------
+- moonshotai/kimi-k2-thinking
+- moonshotai/kimi-k2-instruct
+- moonshotai/kimi-k2-instruct-0905
+
+MODÈLES GOOGLE GEMMA (4)
+------------------------
+- google/gemma-3-27b-it
+- google/gemma-3-1b-it
+- google/gemma-3n-e4b-it
+- google/gemma-3n-e2b-it
+
+MODÈLES GÉNÉRATION D'IMAGES (4)
+--------------------------------
+- black-forest-labs/FLUX.1-dev
+- black-forest-labs/FLUX.1-schnell
+- black-forest-labs/FLUX.1-Kontext-dev
+- stabilityai/stable-diffusion-3.5-large
+
+================================================================================
+2. NETTOYAGE DU REGISTRY
+================================================================================
+Fichier: app/lib/modules/llm/registry.ts
+
+Changements:
+✓ Conservation uniquement de:
+  - OpenRouterProvider
+  - NvidiaProvider
+
+✗ Providers supprimés (18):
+  - AnthropicProvider
+  - CohereProvider
+  - DeepseekProvider
+  - GoogleProvider
+  - GroqProvider
+  - HuggingFaceProvider
+  - LMStudioProvider
+  - MistralProvider
+  - OllamaProvider
+  - OpenAILikeProvider
+  - OpenAIProvider
+  - PerplexityProvider
+  - TogetherProvider
+  - XAIProvider
+  - HyperbolicProvider
+  - AmazonBedrockProvider
+  - GithubProvider
+  - MoonshotProvider
+
+================================================================================
+3. NETTOYAGE DU FICHIER .env.example
+================================================================================
+Fichier: .env.example
+
+Changements:
+✓ Suppression de toutes les clés API des providers non utilisés
+✓ Conservation uniquement de:
+  - OPEN_ROUTER_API_KEY
+  - NVIDIA_API_KEY
+  - NVIDIA_API_BASE_URL (commentée, avec valeur par défaut)
+✓ Suppression de toutes les sections "CUSTOM PROVIDER BASE URLS"
+✓ Conservation des intégrations tierces (GitHub, GitLab, Vercel, etc.)
+
+================================================================================
+CONFIGURATION REQUISE
+================================================================================
+
+OPENROUTER
+----------
+OPEN_ROUTER_API_KEY=votre_clé_ici
+URL: https://openrouter.ai/keys
+
+NVIDIA
+------
+NVIDIA_API_KEY=votre_clé_ici
+# NVIDIA_API_BASE_URL=https://integrate.api.nvidia.com/v1
+URL: https://build.nvidia.com/
+
+================================================================================
+PROCHAINES ÉTAPES
+================================================================================
+
+1. Copier .env.example vers .env.local:
+   cp .env.example .env.local
+
+2. Ajouter vos clés API dans .env.local:
+   - OPEN_ROUTER_API_KEY
+   - NVIDIA_API_KEY
+
+3. Redémarrer le serveur:
+   pnpm run dev
+
+4. Vérifier les modèles disponibles dans l'interface
+
+================================================================================
+NOTES IMPORTANTES
+================================================================================
+
+✓ Les anciens fichiers providers sont toujours présents mais non utilisés
+✓ Système simplifié: seulement 2 providers
+✓ NVIDIA: 60+ modèles open-source
+✓ OpenRouter: accès à d'autres modèles si nécessaire
+✓ Base URL NVIDIA: https://integrate.api.nvidia.com/v1
+✓ Modèles d'image disponibles via NVIDIA
+
+================================================================================
+RÉSUMÉ DES BÉNÉFICES
+================================================================================
+
+1. Simplicité: 2 providers seulement
+2. Puissance: 60+ modèles open-source via NVIDIA
+3. Flexibilité: OpenRouter pour autres modèles
+4. Économies: Modèles NVIDIA open-source
+5. Maintenance: Code plus simple
+
+================================================================================

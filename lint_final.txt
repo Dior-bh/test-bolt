@@ -1,0 +1,23 @@
+
+> bolt@1.0.0 lint
+> eslint --cache --cache-location ./node_modules/.cache/eslint app
+
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\integration.ts
+  119:14  error  '_error' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\orchestrator.ts
+  152:39  error  Delete `┬À`  prettier/prettier
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\stores\supabase.ts
+  75:5  error  Insert `┬À┬À`                   prettier/prettier
+  76:1  error  Insert `┬À┬À`                   prettier/prettier
+  77:5  error  Insert `┬À┬À`                   prettier/prettier
+  78:1  error  Replace `┬À┬À┬À┬À` with `┬À┬À┬À┬À┬À┬À`  prettier/prettier
+  79:5  error  Insert `┬À┬À`                   prettier/prettier
+  80:1  error  Replace `┬À┬À┬À┬À` with `┬À┬À┬À┬À┬À┬À`  prettier/prettier
+  81:1  error  Insert `┬À┬À`                   prettier/prettier
+
+Ô£û 9 problems (9 errors, 0 warnings)
+  8 errors and 0 warnings potentially fixable with the `--fix` option.
+

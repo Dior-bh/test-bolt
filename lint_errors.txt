@@ -1,0 +1,53 @@
+
+> bolt@1.0.0 lint
+> eslint --cache --cache-location ./node_modules/.cache/eslint app
+
+
+D:\bolt.diy-main\bolt.diy-main\app\components\BackgroundTasks.tsx
+  2:24  error  'Clock' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\base-agent.ts
+  71:27  error  'systemPrompt' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+  71:49  error  'userPrompt' is defined but never used. Allowed unused args must match /^_/u    @typescript-eslint/no-unused-vars
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\examples.ts
+  16:23  error  Expected to return a value at the end of async function 'exampleBasicUsage'  consistent-return
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\index.ts
+   48:1   error  '../cache/cache-manager' import is restricted from being used by a pattern. Relative imports are not allowed. Please use '~/' instead                    no-restricted-imports
+   55:1   error  '../monitoring/performance-tracker' import is restricted from being used by a pattern. Relative imports are not allowed. Please use '~/' instead         no-restricted-imports
+   62:1   error  '../../components/BackgroundTasks' import is restricted from being used by a pattern. Relative imports are not allowed. Please use '~/' instead          no-restricted-imports
+   69:1   error  '../common/prompts/enhanced-system-prompt' import is restricted from being used by a pattern. Relative imports are not allowed. Please use '~/' instead  no-restricted-imports
+   99:14  error  Variable name `Agents` must match one of the following formats: camelCase, UPPER_CASE                                                                    @typescript-eslint/naming-convention
+  109:14  error  Variable name `Cache` must match one of the following formats: camelCase, UPPER_CASE                                                                     @typescript-eslint/naming-convention
+  114:14  error  Variable name `Monitoring` must match one of the following formats: camelCase, UPPER_CASE                                                                @typescript-eslint/naming-convention
+  119:14  error  Variable name `Utils` must match one of the following formats: camelCase, UPPER_CASE                                                                     @typescript-eslint/naming-convention
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\integration.ts
+   10:15  error  'Message' is defined but never used                                        @typescript-eslint/no-unused-vars
+   27:66  error  'context' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+  120:14  error  'error' is defined but never used                                          @typescript-eslint/no-unused-vars
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\agents\orchestrator.ts
+    9:1   error  '../cache/cache-manager' import is restricted from being used by a pattern. Relative imports are not allowed. Please use '~/' instead  no-restricted-imports
+   12:11  error  Class Property name `agents` must have one leading underscore(s)                                                                       @typescript-eslint/naming-convention
+   22:11  error  Class Property name `workerPool` must have one leading underscore(s)                                                                   @typescript-eslint/naming-convention
+  103:17  error  Class Method name `runBackgroundTasks` must have one leading underscore(s)                                                             @typescript-eslint/naming-convention
+  118:34  error  'index' is defined but never used. Allowed unused args must match /^_/u                                                                @typescript-eslint/no-unused-vars
+  150:11  error  Class Property name `activeWorkers` must have one leading underscore(s)                                                                @typescript-eslint/naming-convention
+  152:23  error  Parameter Property name `size` must have one leading underscore(s)                                                                     @typescript-eslint/naming-convention
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\cache\cache-manager.ts
+  16:11  error  Class Property name `cache` must have one leading underscore(s)   @typescript-eslint/naming-convention
+  17:11  error  Class Property name `config` must have one leading underscore(s)  @typescript-eslint/naming-convention
+  70:11  error  Class Method name `evict` must have one leading underscore(s)     @typescript-eslint/naming-convention
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\monitoring\performance-tracker.ts
+  8:11  error  Class Property name `metrics` must have one leading underscore(s)  @typescript-eslint/naming-convention
+  9:11  error  Class Property name `timers` must have one leading underscore(s)   @typescript-eslint/naming-convention
+
+D:\bolt.diy-main\bolt.diy-main\app\lib\stores\supabase.ts
+  63:12  error  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+Ô£û 28 problems (28 errors, 0 warnings)
+
