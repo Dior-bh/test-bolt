@@ -149,7 +149,7 @@ export class AgentOrchestrator {
 class WorkerPool {
   private _activeWorkers = 0;
 
-  constructor(private _size: number) { }
+  constructor(private _size: number) {}
 
   async execute(task: Task): Promise<any> {
     // Simulated worker pool

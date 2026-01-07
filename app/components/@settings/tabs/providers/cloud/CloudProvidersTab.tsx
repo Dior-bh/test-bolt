@@ -14,8 +14,9 @@ import { TbCloudComputing } from 'react-icons/tb';
 import { FaCloud } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 
-// Add type for provider names to ensure type safety
-// Add type for provider names to ensure type safety
+/**
+ * Add type for provider names to ensure type safety
+ */
 type ProviderName = 'Nvidia' | 'OpenRouter';
 
 // Update the PROVIDER_ICONS type to use the ProviderName type
