@@ -254,26 +254,14 @@ export class ImportExportService {
      * This matches how the application stores API keys in cookies
      */
     const template = {
-      Anthropic: '',
-      OpenAI: '',
-      Google: '',
-      Groq: '',
-      HuggingFace: '',
+      NVIDIA: '',
       OpenRouter: '',
-      Deepseek: '',
-      Mistral: '',
-      OpenAILike: '',
-      Together: '',
-      xAI: '',
-      Perplexity: '',
-      Cohere: '',
-      AzureOpenAI: '',
     };
 
     // Add a comment to explain the format
     return {
       _comment:
-        "Fill in your API keys for each provider. Keys will be stored with the provider name (e.g., 'OpenAI'). The application also supports the older format with keys like 'OpenAI_API_KEY' for backward compatibility.",
+        "Fill in your API keys for the supported providers. Keys will be stored with the provider name (e.g., 'NVIDIA', 'OpenRouter').",
       ...template,
     };
   }

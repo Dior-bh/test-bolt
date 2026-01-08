@@ -15,7 +15,7 @@ import SetupGuide from './SetupGuide';
 import StatusDashboard from './StatusDashboard';
 import ProviderCard from './ProviderCard';
 import ModelCard from './ModelCard';
-import { OLLAMA_API_URL } from './types';
+import { DEFAULT_OLLAMA_API_URL } from './types';
 import type { OllamaModel, LMStudioModel } from './types';
 import { Cpu, Server, BookOpen, Activity, PackageOpen, Monitor, Loader2, RotateCw, ExternalLink } from 'lucide-react';
 
@@ -114,7 +114,9 @@ export default function LocalProvidersTab() {
     try {
       setIsLoadingModels(true);
 
-      const response = await fetch(`${OLLAMA_API_URL}/api/tags`);
+      // Use user-configured Ollama URL or default
+      const ollamaUrl = (providers?.Ollama as IProviderConfig)?.settings?.baseUrl || DEFAULT_OLLAMA_API_URL;
+      const response = await fetch(`${ollamaUrl}/api/tags`);
 
       if (!response.ok) {
         throw new Error('Failed to fetch models');
@@ -194,7 +196,9 @@ export default function LocalProvidersTab() {
     try {
       setOllamaModels((prev) => prev.map((m) => (m.name === modelName ? { ...m, status: 'updating' } : m)));
 
-      const response = await fetch(`${OLLAMA_API_URL}/api/pull`, {
+      // Use user-configured Ollama URL or default
+      const ollamaUrl = (providers?.Ollama as IProviderConfig)?.settings?.baseUrl || DEFAULT_OLLAMA_API_URL;
+      const response = await fetch(`${ollamaUrl}/api/pull`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: modelName }),
@@ -265,7 +269,9 @@ export default function LocalProvidersTab() {
     }
 
     try {
-      const response = await fetch(`${OLLAMA_API_URL}/api/delete`, {
+      // Use user-configured Ollama URL or default
+      const ollamaUrl = (providers?.Ollama as IProviderConfig)?.settings?.baseUrl || DEFAULT_OLLAMA_API_URL;
+      const response = await fetch(`${ollamaUrl}/api/delete`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: modelName }),

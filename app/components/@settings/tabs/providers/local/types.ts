@@ -28,8 +28,11 @@ export interface LMStudioModel {
   created?: number;
 }
 
-// Constants
-export const OLLAMA_API_URL = 'http://127.0.0.1:11434';
+/**
+ * Constants
+ * Default Ollama API URL (can be overridden by user in settings)
+ */
+export const DEFAULT_OLLAMA_API_URL = 'http://localhost:11434';
 
 export const PROVIDER_ICONS = {
   Ollama: 'Server',
